@@ -1,0 +1,59 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+
+
+Vagrant.configure("2") do |config|
+
+  
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "ubuntu/bionic64"
+
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+  config.vm.synced_folder "src/", "/home/vagrant/"
+  config.vm.network "public_network", bridge: ["Intel(R) Dual Band Wireless-AC 7265 #2"]
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.cpus = 1
+    vb.memory = "1024"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    echo '192.168.0.2 alpha alpha.ex' >> /etc/hosts
+  SHELL
+
+  config.vm.define "alpha" do |ex|
+    ex.vm.hostname = "alpha"
+    ex.vm.network "private_network", ip: "192.168.0.2"
+
+    ex.vm.provision "shell", path: "bootstrap/system.sh"
+
+  end
+  
+  config.vm.provision "shell", inline: <<-SHELL
+   su vagrant -c /vagrant/start.sh
+  SHELL
+
+  config.vm.provision "shell" do |s|
+    ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
+    s.inline = <<-SHELL
+      echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
+      echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
+    SHELL
+  end
+  
+
+
+end

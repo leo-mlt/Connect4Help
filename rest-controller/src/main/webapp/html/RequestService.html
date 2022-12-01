@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Request Service</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
+    <link href="../css/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="../js/home.js"></script>
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body onload="createHome()">
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><span class="icon icon-cog"></span>Connect4Help</h1>
+
+            <div id="menu">
+                <ul>
+                    <li class="current_page_item"><a id='home' href="" accesskey="1" title=""></a></li>
+                    <li><a id='home2' href="#" accesskey="2" title=""></a></li>
+                    <li><a href="Chat.html" accesskey="3" title="">Chat</a></li>
+                    <li><a href="../indexLogin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </div>
+
+            <div id="divForm">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-wrapper">
+    <div id="page" class="container">
+        <div class="title">
+            <h2>REQUEST A SERVICE</h2>
+        </div>
+        <p>Fill the form below to insert a request for a new service</p>
+    </div>
+</div>
+<div class="wrapper" id="wrapper5">
+    <div class="wrapper-add-request-form">
+        <form id="add-request-form" action="#" method="post">
+            <div class="add-request-input-field">
+                <label for="select-category">Service Category</label>
+                <select name="category" id="select-category">
+                    <option value="">--- Select Service Category ---</option>
+                </select>
+            </div>
+
+            <div class="add-request-input-field">
+                <label for="slot-start">Slot Start</label>
+                <input type="datetime-local" id="slot-start" name="startSlot" >
+            </div>
+
+            <div class="add-request-input-field">
+                <label for="slot-end">Slot End</label>
+                <input type="datetime-local" id="slot-end" name="endSlot" >
+            </div>
+
+            <div class="add-request-input-field">
+                <label for="details">Details</label>
+                <textarea name="details" form="add-request-form" id="details" placeholder="Enter details here..." ></textarea>
+            </div>
+
+            <div class="add-request-input-field">
+                <label for="expiration-date">Expiration Date</label>
+                <input type="datetime-local" id="expiration-date" name="expirationDate" >
+            </div>
+
+            <div class="add-request-input-field">
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" >
+            </div>
+
+            <div class="add-request-input-field" id="buttons-container">
+
+                <div class="add-request-input-field" id="div-reset-form">
+                    <a href="#" id="reset-form">
+                        <i class="fas fa-trash-alt" area-hidden="true" id="service-form-reset"></i>
+                    </a>
+                </div>
+
+                <div class="add-request-input-field" id="div-submit-form">
+                    <a href="#" id="submit-form">
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+<div id="wrapper2">
+    <div id="tools">
+        <!--div class="title">
+            <h2>Vivamus fermentum nibh</h2>
+        </div>
+        <ul class="tools">
+            <li><a href="#" class="icon icon-legal"></a></li>
+            <li><a href="#" class="icon icon-random"></a></li>
+            <li><a href="#" class="icon icon-key"></a></li>
+            <li><a href="#" class="icon icon-wrench"></a></li>
+            <li><a href="#" class="icon icon-cut"></a></li>
+            <li><a href="#" class="icon icon-filter"></a></li>
+            <li><a href="#" class="icon icon-lock"></a></li>
+        </ul-->
+
+    </div>
+</div>
+<div id="copyright" class="container">
+    <p>&copy; Untitled. All rights reserved. | Maps by OpenLayers | Design by Alberto Caruso, Antonio Di Noia, Leo Maltese.</p>
+</div>
+<script src="../js/requestService.js"></script>
+</body>
+</html>
